@@ -1,14 +1,15 @@
-
 //execDemo.c
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
-int main()
+int main(int argc, char *argv[])
 {
 		//A null terminated array of character
 		//pointers
+		int pid =  getpid();
 		char *args[]={"./EXEC",NULL};
+		printf("%s(pid=%d): Preparing to execute exec program\n", argv[0] ,pid);
+		sleep(2);
 		execvp(args[0],args);
 	
 		/*All statements are ignored after execvp() call as this whole
